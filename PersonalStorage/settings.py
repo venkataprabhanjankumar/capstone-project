@@ -1,6 +1,9 @@
+import os
 import string
 from pathlib import Path
 from decouple import config, Csv
+from django.urls import reverse_lazy
+from google.oauth2 import service_account
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +29,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'accounts.apps.AccountsConfig'
+    'crispy_forms',
+
+    'accounts.apps.AccountsConfig',
+    'dashboard.apps.DashboardConfig',
 ]
 
 MIDDLEWARE = [
@@ -38,6 +44,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTH_USER_MODEL = "accounts.Users"
+LOGIN_URL = reverse_lazy('login')
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 ROOT_URLCONF = 'PersonalStorage.urls'
 
@@ -108,3 +118,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+# os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(BASE_DIR, 'quantum-weft-363404-dc7def663151.json')
+
+# GS_ACCESS_KEY_ID = config('GCP_STORAGE_ACCESS_KEY')
+# GS_SECRET_ACCESS_KEY = config('GCP_STORAGE_SECRET_KEY')
+GS_BUCKET_NAME = 'personal-storage-demo'
