@@ -18,7 +18,7 @@ spec:
           env:
             - name: ALLOWED_HOSTS
               value: "35.237.23.79"
-            -name: GOOGLE_APPLICATION_CREDENTIALS
+            - name: GOOGLE_APPLICATION_CREDENTIALS
             - value: cat /code/secret.json
           ports:
             - containerPort: 8000
