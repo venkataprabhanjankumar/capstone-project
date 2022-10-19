@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, CreateView, FormView, ListView
+from django.views.generic import TemplateView, CreateView, FormView, ListView, DeleteView
 from django.utils.timezone import datetime
 
 from .models import Storage
@@ -54,3 +54,13 @@ class ViewFile(ListView):
         context = super().get_context_data()
         context['menu'] = 'view_file'
         return context
+
+
+class DeleteFile(LoginRequiredMixin, DeleteView):
+    model = Storage
+    template_name = 'delete_file.html'
+    success_url = reverse_lazy('view_files')
+    context_object_name = 'file'
+
+    def get_queryset(self):
+        return Storage.objects.filter(pk=self.kwargs['pk'])

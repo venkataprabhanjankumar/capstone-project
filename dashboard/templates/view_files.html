@@ -8,6 +8,9 @@
                 <td>{{ file.description }}</td>
                 <td>{{ file.file }}</td>
                 <td><a href="{{ file.file.url }}">View File</a></td>
+                <td><a href="{% url 'delete_file' file.pk %}">
+                    <button type="button">Delete</button>
+                </a></td>
             </tr>
         {% endfor %}
     </table>

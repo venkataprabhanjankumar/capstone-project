@@ -1,0 +1,10 @@
+{% extends 'dashboard_base.html' %}
+{% load i18n %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        Are you Sure to delete the {{ file.file_name }} ?
+        <br/><br/>
+        <button type="submit" class="btn btn-success">{% trans 'Delete' %}</button>
+    </form>
+{% endblock %}

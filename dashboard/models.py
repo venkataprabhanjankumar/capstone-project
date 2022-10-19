@@ -8,3 +8,7 @@ class Storage(models.Model):
     description = models.CharField(max_length=225, blank=True)
     access_time = models.DateTimeField(default=datetime.now())
     file = models.FileField(upload_to='personalFiles')
+
+    def delete(self, using=None, keep_parents=False):
+        self.file.storage.delete(self.file.name)
+        super().delete()
