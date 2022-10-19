@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: personal-storage
+  labels:
+    app: personal-storage
+spec:
+  selector:
+    matchLabels:
+      app: personal-storage
+  template:
+    metadata:
+      name: personal-storage
+      labels:
+        app: personal-storage
+    spec:
+        containers:
+        - name: personal-storage-image
+          image: gcr.io/quantum-weft-363404/personal-storage
+          command: ["echo","sucess"]
+          ports:
+            - containerPort: 8000
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: personal-storage-service
+  labels:
+    app: personal-storage
+spec:
+  type: LoadBalancer
+  selector:
+    app: personal-storage
+  ports:
+    - name: django-port
+      port: 8000
+      protocol: TCP
