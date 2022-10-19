@@ -13,6 +13,8 @@ COPY . /code/
 
 RUN export GOOGLE_APPLICATION_CREDENTIALS=/code/secret.json
 
+RUN echo "${GOOGLE_APPLICATION_CREDENTIALS=/code/secret.json}"
+
 EXPOSE 8000
 
 CMD ["python","manage.py","runserver","0.0.0.0:8000"]

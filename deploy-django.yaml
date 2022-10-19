@@ -15,6 +15,9 @@ spec:
         containers:
         - name: personal-storage-image
           image: gcr.io/quantum-weft-363404/personal-storage
+          env:
+            - name: ALLOWED_HOSTS
+              value: "35.237.23.79"
           ports:
             - containerPort: 8000
 ---
