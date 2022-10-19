@@ -13,7 +13,7 @@ COPY . /code/
 
 RUN export GOOGLE_APPLICATION_CREDENTIALS=/code/secret.json
 
-RUN echo "${GOOGLE_APPLICATION_CREDENTIALS=/code/secret.json}"
+RUN python manage.py migrate
 
 EXPOSE 8000
 
