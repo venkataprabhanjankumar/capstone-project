@@ -37,15 +37,15 @@
            href="{% url 'logout' %}">
           {% trans 'Logout' %}
         </a>
-        <a class="nav-item nav-link{% if menu == 'create' %} active{% endif %}"
-           href="/create">
-          {% trans 'Upload File' %}
-          {% if menu == 'create' %}<span class="sr-only">{% trans '(current)' %}</span>{% endif %}
+        <a class="nav-item nav-link{% if menu == 'create_files' %} active{% endif %}"
+           href="{% url 'upload' %}">
+          {% trans 'Upload Files' %}
+          {% if menu == 'create_files' %}<span class="sr-only">{% trans '(current)' %}</span>{% endif %}
         </a>
-        <a class="nav-item nav-link{% if menu == 'create' %} active{% endif %}"
-           href="/create">
+        <a class="nav-item nav-link{% if menu == 'view_file' %} active{% endif %}"
+           href="{% url 'view_files' %}">
           {% trans 'View Files' %}
-          {% if menu == 'create' %}<span class="sr-only">{% trans '(current)' %}</span>{% endif %}
+          {% if menu == 'view_file' %}<span class="sr-only">{% trans '(current)' %}</span>{% endif %}
         </a>
         </div>
     </div>
