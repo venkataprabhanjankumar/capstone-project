@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: personal-storage
-  labels:
-    app: personal-storage
 spec:
   selector:
     matchLabels:
@@ -17,7 +15,6 @@ spec:
         containers:
         - name: personal-storage-image
           image: gcr.io/quantum-weft-363404/personal-storage
-          command: ["echo","sucess"]
           ports:
             - containerPort: 8000
 ---
