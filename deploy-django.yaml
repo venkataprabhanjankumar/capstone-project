@@ -14,7 +14,7 @@ spec:
     spec:
         containers:
         - name: personal-storage-image
-          image: gcr.io/quantum-weft-363404/personal-storage:${BUILD_NUMBER}
+          image: gcr.io/quantum-weft-363404/personal-storage
           env:
             - name: ALLOWED_HOSTS
               value: "35.237.23.79"
