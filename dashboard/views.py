@@ -42,7 +42,7 @@ class CreateFile(LoginRequiredMixin, FormView):
         return context
 
 
-class ViewFile(ListView):
+class ViewFile(LoginRequiredMixin, ListView):
     model = Storage
     context_object_name = 'files'
     template_name = 'view_files.html'
