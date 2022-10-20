@@ -1,4 +1,7 @@
 {% extends 'dashboard_base.html' %}
 {% block content %}
-<h3>Welcome back {{ user.first_name }} {{ user.last_name }}</h3>
+    <h3>Welcome back {{ user.first_name }} {{ user.last_name }}</h3>
+    <div style="padding-left: 70%;padding-top: 10%;height: auto;width: auto">
+        <img src="{{ user.profilePic.url }}">
+    </div>
 {% endblock %}
