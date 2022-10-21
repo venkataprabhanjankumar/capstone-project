@@ -7,7 +7,7 @@ class Users(AbstractUser):
         ('Male', 'Male'),
         ('Female', 'Female')
     ])
-    profilePic = models.FileField(upload_to="profilePics")
+    profilePic = models.ImageField(upload_to="profilePics")
 
     class Meta:
         db_table = "auth_user"
